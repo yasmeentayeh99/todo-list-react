@@ -46,12 +46,14 @@ class Home extends Component {
     });
   };
 
-  handleDelete= (id) => {
-      let items = this.state.items;
-      let i = items.findIndex(item => item.id === id)
-      items.splice(i,1)
-      this.setState([items])
-  }
+
+  handleDelete = (id) => {
+    console.log(id);
+    let newItems = this.state.items.filter((item) => item.id !== id)
+    this.setState({
+      items: newItems
+    })
+    };
 
   render() {
     return (
@@ -64,10 +66,10 @@ class Home extends Component {
 
         />
         <List items={this.state.items}
+              handleDelete = {this.handleDelete}
 
         />
-        <ListItem handleDelete={this.handleDelete} />
-
+        {/*<ListItem handleDelete={this.handleChange()} />*/}
       </div>
     );
   }

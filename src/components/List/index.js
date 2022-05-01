@@ -5,7 +5,7 @@ function List(props) {
   return (
     <section className={"list flex"}>
       {props.items.map((item, idx) => (
-        <ListIem title={item.title} key={`${item.id}`} />
+        <ListIem title={item.title} key={`${item.id}`} handleDelete={props.handleDelete(item.id )} />
       ))}
     </section>
   );
